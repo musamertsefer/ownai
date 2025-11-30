@@ -1,4 +1,6 @@
 import fs from "fs";
+import axios from "axios";
+import 'dotenv/config';
 
 const DATA_FILE = "./data.json";
 if (!fs.existsSync(DATA_FILE)) fs.writeFileSync(DATA_FILE, JSON.stringify({}));
@@ -76,3 +78,28 @@ export function teachAI(prompt, answer, score=5) {
     fs.writeFileSync(DATA_FILE, JSON.stringify(knowledge, null, 2));
 }
 
+// Local memory kontrolü
+export function askAI(prompt) {
+  if (knowledge[prompt]) {
+    return knowledge[prompt].answer;
+  }
+  return null;
+}
+
+// Local memory'ye yeni veri ekleme
+export function addKnowledge(prompt, answer) {
+  knowledge[prompt] = { answer };
+  fs.writeFileSync(DATA_FILE, JSON.stringify(knowledge, null, 2));
+}
+
+// Wikipedia API’den özet çekme
+export async function getWikipediaSummary(topic) {
+  try {
+    const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(topic)}`;
+    const res = await axios.get(url);
+    return res.data.extract;
+  } catch (err) {
+    console.log("Wikipedia fetch error:", err.message);
+    return null;
+  }
+}

@@ -1,5 +1,6 @@
 import express from "express";
 import { askAI, rateAnswer } from "./ai.mjs";
+import 'dotenv/config';
 
 const app = express();
 app.use(express.json());
@@ -71,3 +72,28 @@ function creativeVariation(text) {
     }
     return words.join(" ");
 }
+
+
+// AI endpoint
+app.post("/ask", async (req, res) => {
+  const { prompt } = req.body;
+
+  // Local memory kontrolü
+  let answer = askAI(prompt);
+
+  if (!answer) {
+    // Local'da yoksa Wikipedia API
+    answer = await getWikipediaSummary(prompt) || "Bu konuda bilgim yok.";
+  }
+
+  res.json({ answer });
+});
+
+// Yeni bilgi ekleme endpoint (opsiyonel)
+app.post("/teach", (req, res) => {
+  const { prompt, answer } = req.body;
+  addKnowledge(prompt, answer);
+  res.json({ success: true });
+});
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
