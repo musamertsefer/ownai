@@ -23,8 +23,7 @@ app.post("/rate", (req, res) => {
   res.json({ success: true });
 });
 
-// Önce PORT değişkenini tanımla
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
