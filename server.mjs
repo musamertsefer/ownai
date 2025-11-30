@@ -62,17 +62,6 @@ function findMostSimilar(prompt) {
     }
     return minDistance <= 5 ? bestMatch : null;
 }
-// Basit kelime varyasyon üretici
-function creativeVariation(text) {
-    const words = text.split(" ");
-    for (let i = 0; i < words.length; i++) {
-        if (Math.random() < 0.2) { // %20 ihtimalle kelimeyi değiştir
-            words[i] = words[i].split("").sort(() => Math.random() - 0.5).join("");
-        }   
-    }
-    return words.join(" ");
-}
-
 
 // AI endpoint
 app.post("/ask", async (req, res) => {

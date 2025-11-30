@@ -36,20 +36,13 @@ function findMostSimilar(prompt) {
 
     return minDistance <= 5 ? bestMatch : null;
 }
-
-// Basit kelime varyasyon üretici
-function creativeVariation(text) {
-    const words = text.split(" ");
-    for (let i = 0; i < words.length; i++) {
-        if (Math.random() < 0.2) { // %20 ihtimalle kelimeyi değiştir
-            words[i] = words[i].split("").sort(() => Math.random() - 0.5).join("");
-        }
-    }
-    return words.join(" ");
-}
-
 // Ana cevap fonksiyonu
 export function askAI(prompt) {
+    if (knowledge[prompt]) {
+        return knowledge[prompt].answer;
+    }
+
+    // Benzer prompt kontrolü
     const similar = findMostSimilar(prompt);
     if (similar) {
         // Kreatif varyasyon ile cevap döndür
@@ -77,15 +70,6 @@ export function teachAI(prompt, answer, score=5) {
     knowledge[prompt] = { answer, score };
     fs.writeFileSync(DATA_FILE, JSON.stringify(knowledge, null, 2));
 }
-
-// Local memory kontrolü
-export function askAI(prompt) {
-  if (knowledge[prompt]) {
-    return knowledge[prompt].answer;
-  }
-  return null;
-}
-
 // Local memory'ye yeni veri ekleme
 export function addKnowledge(prompt, answer) {
   knowledge[prompt] = { answer };
