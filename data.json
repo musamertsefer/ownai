@@ -1,0 +1,58 @@
+{
+  "selam": {
+    "answer": "Merhaba! Nasılsın?",
+    "score": 5
+  },
+  "bugün nasılsın": {
+    "answer": "İyiyim, teşekkürler! Sen nasılsın?",
+    "score": 5
+  },
+  "nasılsın": {
+    "answer": "İyiyim, teşekkürler! Sen nasılsın?",
+    "score": 3
+  },
+  "merhabaa": {
+    "answer": "Merhaba! Nasılsın?",
+    "score": 4
+  },
+  "Merhaba": {
+    "answer": "Merhaba! Nasılsın?",
+    "score": 5
+  },
+  "Nasılsın?": {
+    "answer": "İyiyim, teşekkürler! Sen nasılsın?",
+    "score": 5
+  },
+  "Hava nasıl?": {
+    "answer": "Güneşli ve güzel bir gün!",
+    "score": 5
+  },
+  "Sen kimsin?": {
+    "answer": "Ben senin kendi AI asistanınım.",
+    "score": 5
+  },
+  "Bugün ne yapıyorsun?": {
+    "answer": "Seninle konuşuyorum ve öğreniyorum!",
+    "score": 5
+  },
+  "ne yapıyorsun": {
+    "answer": "Seninle konuşuyorum ve öğreniyorum!",
+    "score": 4
+  },
+  "ben de iyiyim": {
+    "answer": "Bilmiyorum hala öğreniyorum: ben de iyiyim",
+    "score": 1
+  },
+  "iyiyim sen?": {
+    "answer": "iyiyim sen?",
+    "score": 1
+  },
+  "iyiyim, sen nasılsın?": {
+    "answer": "iyiyim, sen nasılsın?  (Bui ilk kez sorulduğu için rastgele üretilmiş bir cevaptır. Lütfen öğretin!)",
+    "score": 1
+  },
+  "okul var mı": {
+    "answer": "okul var mı  (Bui ilk kez sorulduğu için rastgele üretilmiş bir cevaptır. Lütfen öğretin!)",
+    "score": 1
+  }
+}

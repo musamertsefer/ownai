@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>OwnAI Chat</title>
+<style>
+  body { font-family: Arial; max-width: 600px; margin: 20px auto; }
+  #chat { border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: auto; }
+  .message { margin: 5px 0; padding: 8px 12px; border-radius: 12px; max-width: 80%; }
+  .user { background-color: #d1e7dd; text-align: right; margin-left: auto; }
+  .ai { background-color: #f8d7da; text-align: left; margin-right: auto; }
+  .buttons { margin-top: 5px; }
+  button { margin-right: 5px; }
+</style>
+</head>
+<body>
+<h1>OwnAI Chat</h1>
+<div>
+  <input type="text" id="prompt" placeholder="Sorunuzu yazın" style="width: 80%;">
+  <button id="send">Gönder</button>
+</div>
+<div id="chat"></div>
+
+<script src="main.js"></script>
+</body>
+</html>
