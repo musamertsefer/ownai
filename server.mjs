@@ -23,7 +23,10 @@ app.post("/rate", (req, res) => {
   res.json({ success: true });
 });
 
-app.listen(3000, () => console.log("Server çalışıyor: http://localhost:3000"));
+// Önce PORT değişkenini tanımla
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 app.post("/teach", (req, res) => {
   const { prompt, answer, score } = req.body;
